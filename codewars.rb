@@ -43,13 +43,42 @@ def check_ages?(data, sex, age_is_greater_than)
     data.all?{|d| d[:sex] != sex || d[:age] >  age_is_greater_than}
 end
 #should return true
-puts check_ages?(data, :f, 18)
+check_ages?(data, :f, 18)
 
 #should return false
-puts check_ages?(data, :f, 25)
+check_ages?(data, :f, 25)
 
 #should return true
-puts check_ages?(data, :m, 18)
+check_ages?(data, :m, 18)
 
 #should return false
-puts check_ages?(data, :m, 44)
+check_ages?(data, :m, 44)
+
+
+#parse dates with all formats
+require 'date.rb'
+
+
+
+    def parse_with_us_format(date, *args)
+    date =~ %r{^\d+/\d+/(\d+)$}
+     Date.strptime date, "%m/%d/#{args.first == false ? '%Y' : '%y'}"
+  
+    end
+def parse_without_us_format(date,*args)
+  date = date.gsub(' ','-')
+  d = Date.parse(date)
+  d.strftime("%A")
+end
+
+  date = "12-25-2013"
+#puts parse_with_us_format(date, "%A")
+
+def domain_name(uri)
+  Addressable::URI.heuristic_parse(uri, :scheme => "http") \
+    .host[/\w+\.\w+(\.\w{2})?\Z/]
+end
+
+domain_name("http://www.meganfolsom.com/anything/")
+
+
