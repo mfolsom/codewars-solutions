@@ -12,7 +12,7 @@ lines.each_with_index { |x, index|
 return new_array
 end
 
-puts line_types (["I'm Alpha", "No idea", "beta tester", nil])
+line_types (["I'm Alpha", "No idea", "beta tester", nil])
 
 #extend array class to check if one array contains all of the values of another
 
@@ -24,6 +24,32 @@ end
 
 items = [1,2,3,4,5,6,7,8,9]
 #should assert true
-puts items.contains_all?([1,2,3])
+items.contains_all?([1,2,3])
 #should assesrt false
-puts items.contains_all?([1,2,17])
+items.contains_all?([1,2,17])
+
+
+#check if all the values matching the specific sex are greater than the value provided
+
+data =  [ 
+  {age: 40, sex: :m},
+  {age: 24, sex: :f},
+  {age: 56, sex: :m},
+  {age: 45, sex: :m},
+  {age: 23, sex: :f}
+]
+
+def check_ages?(data, sex, age_is_greater_than)
+    data.all?{|d| d[:sex] != sex || d[:age] >  age_is_greater_than}
+end
+#should return true
+puts check_ages?(data, :f, 18)
+
+#should return false
+puts check_ages?(data, :f, 25)
+
+#should return true
+puts check_ages?(data, :m, 18)
+
+#should return false
+puts check_ages?(data, :m, 44)
