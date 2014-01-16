@@ -14,7 +14,6 @@ describe "Return substring instance count" do
 	 	end
 
 	it "returns 3 if 3 results found" 	do
-	# 	expect(@kata.solution('ccddeeccddeecc', 'cc')).to eq(3)
 		kata = KataOne.new('ccddeeccddeecc', 'cc')
 		expect(kata.solution).to eq(3)
 	 	end
