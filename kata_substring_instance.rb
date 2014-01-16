@@ -1,3 +1,18 @@
-def solution(full_text, search_text)
-  full_text.scan(search_text).count
+
+
+class KataOne
+	def initialize(full_text, search_text)
+		@full_text = full_text
+		@search_text = search_text
+		solution
+	end
+
+	def solution
+  		 @full_text.scan(@search_text).count
+	end
+
 end
+
+#kata = KataOne.new("string1", "ring")
+#kata.solution
+
