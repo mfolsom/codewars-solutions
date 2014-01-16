@@ -1,3 +1,5 @@
+
+#This is a scratch file I created to play around with code. Very bad. don't copy
 #check if an array has a specific word and replace that word with symbols, accounting for nil and empty values
 def line_types(lines)
   
