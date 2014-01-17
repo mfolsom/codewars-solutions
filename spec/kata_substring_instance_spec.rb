@@ -27,5 +27,8 @@ describe "Return substring instance count" do
  		kata = Solver.new('aa_bb_cc_dd_bb_e', 'bb')
 		expect(kata.solution).to eq(2)
 	 	end
-
+	 it "handles arrays" do
+	 	kata = Solver.new(["word", "two", "apple"], "word")
+	 	expect(kata.solution).to eq(1)
+	 end
 end

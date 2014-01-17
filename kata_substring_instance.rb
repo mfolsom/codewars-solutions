@@ -1,22 +1,23 @@
 
 
-module SearchParams
-	def initialize(full_text, search_text)
+class SearchParams
+	def initialize(full_text,search_text)
 		@full_text = full_text
 		@search_text = search_text
-		#solution
 	end
 end
 
-class Solver
-include SearchParams
-	
+class Solver < SearchParams
 	def solution
-  		 @full_text.scan(@search_text).count
+		if 	@full_text.is_a? Array
+			text = @full_text.join(",")
+			full_text = text.scan(@search_text).count
+		else
+  		 	@full_text.scan(@search_text).count
+  		end
 	end
-
 end
 
-# kata = Solver.new("string1", "ring")
-# puts kata.solution
+ #kata = Solver.new("string","ring")
+ #puts kata.solution
 
