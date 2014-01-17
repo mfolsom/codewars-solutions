@@ -17,6 +17,6 @@ include SearchParams
 
 end
 
-#kata = KataOne.new("string1", "ring")
-#kata.solution
+# kata = Solver.new("string1", "ring")
+# puts kata.solution
 
