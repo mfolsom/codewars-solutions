@@ -1,6 +1,6 @@
 
 
-module Decorator
+module SearchParams
 	def initialize(full_text, search_text)
 		@full_text = full_text
 		@search_text = search_text
@@ -9,7 +9,7 @@ module Decorator
 end
 
 class Solver
-include Decorator
+include SearchParams
 	
 	def solution
   		 @full_text.scan(@search_text).count
