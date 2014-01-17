@@ -57,30 +57,31 @@ check_ages?(data, :m, 18)
 check_ages?(data, :m, 44)
 
 
-#parse dates with all formats
-require 'date.rb'
+# #parse dates with all formats
+# require 'date.rb'
 
 
 
-    def parse_with_us_format(date, *args)
-    date =~ %r{^\d+/\d+/(\d+)$}
-     Date.strptime date, "%m/%d/#{args.first == false ? '%Y' : '%y'}"
+#     def parse_with_us_format(date, *args)
+#     date =~ %r{^\d+/\d+/(\d+)$}
+#      Date.strptime date, "%m/%d/#{args.first == false ? '%Y' : '%y'}"
   
-    end
-def parse_without_us_format(date,*args)
-  date = date.gsub(' ','-')
-  d = Date.parse(date)
-  d.strftime("%A")
-end
+#     end
+# def parse_without_us_format(date,*args)
+#   date = date.gsub(' ','-')
+#   d = Date.parse(date)
+#   d.strftime("%A")
+# end
 
-  date = "12-25-2013"
-#puts parse_with_us_format(date, "%A")
+#   date = "12-25-2013"
+# #puts parse_with_us_format(date, "%A")
 
 def domain_name(uri)
-  Addressable::URI.heuristic_parse(uri, :scheme => "http") \
-    .host[/\w+\.\w+(\.\w{2})?\Z/]
+ if %r|^https?:\/\/(.+)$| === uri
+ uri = $1
+end
 end
 
-domain_name("http://www.meganfolsom.com/anything/")
+puts domain_name("https://www.meganfolsom.com/anything/").to_s
 
 

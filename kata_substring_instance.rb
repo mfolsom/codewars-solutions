@@ -1,12 +1,16 @@
 
 
-class KataOne
+module Decorator
 	def initialize(full_text, search_text)
 		@full_text = full_text
 		@search_text = search_text
-		solution
+		#solution
 	end
+end
 
+class Solver
+include Decorator
+	
 	def solution
   		 @full_text.scan(@search_text).count
 	end
