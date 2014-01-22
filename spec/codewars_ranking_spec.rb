@@ -14,9 +14,15 @@ let(:user) {RankSystem.new}
 		expect(user.inc_progress(-6)).to eq(-5)
 	end
 
-	it "should show a progress of zero from the beginning" do
+	it "should show zero progress points from the beginning" do
 		user.rank
 		expect(user.progress).to eq(0)
+	end
+
+	it "should show an additional 10 progress points if the user progresses one rank" do
+		user.rank
+		user.inc_progress(-8)
+		expect(user.progress).to eq(10)
 	end
 
 
